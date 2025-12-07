@@ -50,13 +50,19 @@
             border-bottom: 2px solid #e9ecef;
         }
         
+        .student-info label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
         .student-info input {
             width: 100%;
             padding: 12px;
             font-size: 16px;
             border: 2px solid #dee2e6;
             border-radius: 8px;
-            margin-top: 8px;
         }
         
         .content {
@@ -64,7 +70,7 @@
         }
         
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .section-title {
@@ -72,14 +78,14 @@
             color: white;
             padding: 15px 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-size: 18px;
             font-weight: bold;
         }
         
         .question {
-            margin-bottom: 25px;
-            padding: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
             background: #f8f9fa;
             border-radius: 8px;
             border-left: 4px solid #667eea;
@@ -87,23 +93,26 @@
         
         .question-title {
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: #333;
             font-size: 16px;
+            line-height: 1.6;
         }
         
         .options {
-            margin-top: 10px;
+            margin-top: 15px;
         }
         
         .option {
-            padding: 10px 15px;
-            margin: 8px 0;
+            display: block;
+            padding: 12px 15px;
+            margin: 10px 0;
             background: white;
             border: 2px solid #dee2e6;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
         
         .option:hover {
@@ -112,12 +121,19 @@
         }
         
         .option input[type="radio"] {
-            margin-right: 10px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            display: inline;
+            user-select: none;
         }
         
         .fill-blank input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 15px;
             border: 2px solid #dee2e6;
             border-radius: 6px;
@@ -127,32 +143,34 @@
         .match-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 25px;
+            margin-top: 20px;
         }
         
         .match-column {
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
             border: 2px solid #dee2e6;
         }
         
         .match-column h4 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #667eea;
             font-size: 16px;
+            font-weight: bold;
         }
         
         .match-item {
-            padding: 12px;
-            margin: 8px 0;
+            padding: 15px;
+            margin: 10px 0;
             background: #f8f9fa;
             border: 2px solid #dee2e6;
             border-radius: 6px;
             cursor: move;
             transition: all 0.3s;
             user-select: none;
+            font-size: 15px;
         }
         
         .match-item:hover {
@@ -166,13 +184,16 @@
         }
         
         .drop-zone {
-            min-height: 50px;
-            padding: 12px;
-            margin: 8px 0;
+            min-height: 60px;
+            padding: 15px;
+            margin: 10px 0;
             background: white;
             border: 2px dashed #dee2e6;
             border-radius: 6px;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .drop-zone.drag-over {
@@ -190,13 +211,14 @@
         .drop-label {
             font-size: 14px;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
         
         .submit-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 40px;
             font-size: 18px;
             border: none;
             border-radius: 8px;
@@ -214,27 +236,55 @@
         
         .result {
             display: none;
-            padding: 30px;
+            padding: 40px;
             background: #f8f9fa;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 30px;
             text-align: center;
+            border: 3px solid #667eea;
         }
         
         .result.show {
             display: block;
         }
         
+        .result h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
         .score {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: bold;
             color: #667eea;
             margin: 20px 0;
         }
         
+        .percentage {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
         .result-details {
-            margin-top: 20px;
+            margin-top: 30px;
             text-align: left;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .result-details h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .result-details p {
+            padding: 8px;
+            margin: 5px 0;
+            border-bottom: 1px solid #e9ecef;
         }
         
         .correct {
@@ -255,6 +305,14 @@
             .header h1 {
                 font-size: 22px;
             }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -267,7 +325,7 @@
         </div>
         
         <div class="student-info">
-            <label for="studentName"><strong>Student Name:</strong></label>
+            <label for="studentName">Student Name:</label>
             <input type="text" id="studentName" placeholder="Enter your full name" required>
         </div>
         
@@ -280,200 +338,440 @@
                     <div class="question">
                         <div class="question-title">Q1. Who created the first widely recognized periodic table?</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q1" value="a"> a) John Dalton</label>
-                            <label class="option"><input type="radio" name="q1" value="b"> b) Dmitri Mendeleev</label>
-                            <label class="option"><input type="radio" name="q1" value="c"> c) J.J. Thomson</label>
-                            <label class="option"><input type="radio" name="q1" value="d"> d) Ernest Rutherford</label>
+                            <div class="option">
+                                <input type="radio" name="q1" value="a" id="q1a">
+                                <label for="q1a">a) John Dalton</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="b" id="q1b">
+                                <label for="q1b">b) Dmitri Mendeleev</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="c" id="q1c">
+                                <label for="q1c">c) J.J. Thomson</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="d" id="q1d">
+                                <label for="q1d">d) Ernest Rutherford</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q2. Elements in the periodic table are arranged by increasing:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q2" value="a"> a) Atomic mass</label>
-                            <label class="option"><input type="radio" name="q2" value="b"> b) Atomic number</label>
-                            <label class="option"><input type="radio" name="q2" value="c"> c) Density</label>
-                            <label class="option"><input type="radio" name="q2" value="d"> d) Melting point</label>
+                            <div class="option">
+                                <input type="radio" name="q2" value="a" id="q2a">
+                                <label for="q2a">a) Atomic mass</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="b" id="q2b">
+                                <label for="q2b">b) Atomic number</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="c" id="q2c">
+                                <label for="q2c">c) Density</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="d" id="q2d">
+                                <label for="q2d">d) Melting point</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q3. Vertical columns in the periodic table are called:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q3" value="a"> a) Periods</label>
-                            <label class="option"><input type="radio" name="q3" value="b"> b) Groups</label>
-                            <label class="option"><input type="radio" name="q3" value="c"> c) Rows</label>
-                            <label class="option"><input type="radio" name="q3" value="d"> d) Families</label>
+                            <div class="option">
+                                <input type="radio" name="q3" value="a" id="q3a">
+                                <label for="q3a">a) Periods</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="b" id="q3b">
+                                <label for="q3b">b) Groups</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="c" id="q3c">
+                                <label for="q3c">c) Rows</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="d" id="q3d">
+                                <label for="q3d">d) Families</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q4. Which group contains noble gases?</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q4" value="a"> a) Group 1</label>
-                            <label class="option"><input type="radio" name="q4" value="b"> b) Group 7</label>
-                            <label class="option"><input type="radio" name="q4" value="c"> c) Group 0</label>
-                            <label class="option"><input type="radio" name="q4" value="d"> d) Group 2</label>
+                            <div class="option">
+                                <input type="radio" name="q4" value="a" id="q4a">
+                                <label for="q4a">a) Group 1</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="b" id="q4b">
+                                <label for="q4b">b) Group 7</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="c" id="q4c">
+                                <label for="q4c">c) Group 0</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="d" id="q4d">
+                                <label for="q4d">d) Group 2</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q5. Alkali metals (Group 1) are known for:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q5" value="a"> a) Being unreactive</label>
-                            <label class="option"><input type="radio" name="q5" value="b"> b) Reacting vigorously with water</label>
-                            <label class="option"><input type="radio" name="q5" value="c"> c) Being gases</label>
-                            <label class="option"><input type="radio" name="q5" value="d"> d) High melting points</label>
+                            <div class="option">
+                                <input type="radio" name="q5" value="a" id="q5a">
+                                <label for="q5a">a) Being unreactive</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="b" id="q5b">
+                                <label for="q5b">b) Reacting vigorously with water</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="c" id="q5c">
+                                <label for="q5c">c) Being gases</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="d" id="q5d">
+                                <label for="q5d">d) High melting points</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q6. Elements in the same group have similar:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q6" value="a"> a) Atomic numbers</label>
-                            <label class="option"><input type="radio" name="q6" value="b"> b) Atomic masses</label>
-                            <label class="option"><input type="radio" name="q6" value="c"> c) Chemical properties</label>
-                            <label class="option"><input type="radio" name="q6" value="d"> d) Physical states</label>
+                            <div class="option">
+                                <input type="radio" name="q6" value="a" id="q6a">
+                                <label for="q6a">a) Atomic numbers</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="b" id="q6b">
+                                <label for="q6b">b) Atomic masses</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="c" id="q6c">
+                                <label for="q6c">c) Chemical properties</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="d" id="q6d">
+                                <label for="q6d">d) Physical states</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q7. Which is a halogen?</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q7" value="a"> a) Sodium</label>
-                            <label class="option"><input type="radio" name="q7" value="b"> b) Chlorine</label>
-                            <label class="option"><input type="radio" name="q7" value="c"> c) Helium</label>
-                            <label class="option"><input type="radio" name="q7" value="d"> d) Calcium</label>
+                            <div class="option">
+                                <input type="radio" name="q7" value="a" id="q7a">
+                                <label for="q7a">a) Sodium</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" value="b" id="q7b">
+                                <label for="q7b">b) Chlorine</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" value="c" id="q7c">
+                                <label for="q7c">c) Helium</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" value="d" id="q7d">
+                                <label for="q7d">d) Calcium</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q8. Reactivity of alkali metals down Group 1:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q8" value="a"> a) Decreases</label>
-                            <label class="option"><input type="radio" name="q8" value="b"> b) Increases</label>
-                            <label class="option"><input type="radio" name="q8" value="c"> c) Stays same</label>
-                            <label class="option"><input type="radio" name="q8" value="d"> d) Becomes zero</label>
+                            <div class="option">
+                                <input type="radio" name="q8" value="a" id="q8a">
+                                <label for="q8a">a) Decreases</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" value="b" id="q8b">
+                                <label for="q8b">b) Increases</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" value="c" id="q8c">
+                                <label for="q8c">c) Stays same</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" value="d" id="q8d">
+                                <label for="q8d">d) Becomes zero</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q9. Noble gases are unreactive because:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q9" value="a"> a) Full outer electron shells</label>
-                            <label class="option"><input type="radio" name="q9" value="b"> b) Very heavy</label>
-                            <label class="option"><input type="radio" name="q9" value="c"> c) Radioactive</label>
-                            <label class="option"><input type="radio" name="q9" value="d"> d) They are metals</label>
+                            <div class="option">
+                                <input type="radio" name="q9" value="a" id="q9a">
+                                <label for="q9a">a) Full outer electron shells</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q9" value="b" id="q9b">
+                                <label for="q9b">b) Very heavy</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q9" value="c" id="q9c">
+                                <label for="q9c">c) Radioactive</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q9" value="d" id="q9d">
+                                <label for="q9d">d) They are metals</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q10. Atomic number represents:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q10" value="a"> a) Number of neutrons</label>
-                            <label class="option"><input type="radio" name="q10" value="b"> b) Number of protons</label>
-                            <label class="option"><input type="radio" name="q10" value="c"> c) Outer electrons</label>
-                            <label class="option"><input type="radio" name="q10" value="d"> d) Total particles</label>
+                            <div class="option">
+                                <input type="radio" name="q10" value="a" id="q10a">
+                                <label for="q10a">a) Number of neutrons</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q10" value="b" id="q10b">
+                                <label for="q10b">b) Number of protons</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q10" value="c" id="q10c">
+                                <label for="q10c">c) Outer electrons</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q10" value="d" id="q10d">
+                                <label for="q10d">d) Total particles</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q11. To separate insoluble solid from liquid, use:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q11" value="a"> a) Distillation</label>
-                            <label class="option"><input type="radio" name="q11" value="b"> b) Filtration</label>
-                            <label class="option"><input type="radio" name="q11" value="c"> c) Chromatography</label>
-                            <label class="option"><input type="radio" name="q11" value="d"> d) Evaporation</label>
+                            <div class="option">
+                                <input type="radio" name="q11" value="a" id="q11a">
+                                <label for="q11a">a) Distillation</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q11" value="b" id="q11b">
+                                <label for="q11b">b) Filtration</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q11" value="c" id="q11c">
+                                <label for="q11c">c) Chromatography</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q11" value="d" id="q11d">
+                                <label for="q11d">d) Evaporation</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q12. Evaporation is used to:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q12" value="a"> a) Separate two liquids</label>
-                            <label class="option"><input type="radio" name="q12" value="b"> b) Obtain soluble solid from solution</label>
-                            <label class="option"><input type="radio" name="q12" value="c"> c) Separate colors</label>
-                            <label class="option"><input type="radio" name="q12" value="d"> d) Remove insoluble solids</label>
+                            <div class="option">
+                                <input type="radio" name="q12" value="a" id="q12a">
+                                <label for="q12a">a) Separate two liquids</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q12" value="b" id="q12b">
+                                <label for="q12b">b) Obtain soluble solid from solution</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q12" value="c" id="q12c">
+                                <label for="q12c">c) Separate colors</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q12" value="d" id="q12d">
+                                <label for="q12d">d) Remove insoluble solids</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q13. To obtain pure water from salt water, use:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q13" value="a"> a) Filtration</label>
-                            <label class="option"><input type="radio" name="q13" value="b"> b) Evaporation</label>
-                            <label class="option"><input type="radio" name="q13" value="c"> c) Distillation</label>
-                            <label class="option"><input type="radio" name="q13" value="d"> d) Chromatography</label>
+                            <div class="option">
+                                <input type="radio" name="q13" value="a" id="q13a">
+                                <label for="q13a">a) Filtration</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q13" value="b" id="q13b">
+                                <label for="q13b">b) Evaporation</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q13" value="c" id="q13c">
+                                <label for="q13c">c) Distillation</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q13" value="d" id="q13d">
+                                <label for="q13d">d) Chromatography</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q14. In chromatography, the stationary phase is:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q14" value="a"> a) Moving solvent</label>
-                            <label class="option"><input type="radio" name="q14" value="b"> b) Paper that doesn't move</label>
-                            <label class="option"><input type="radio" name="q14" value="c"> c) The mixture</label>
-                            <label class="option"><input type="radio" name="q14" value="d"> d) The container</label>
+                            <div class="option">
+                                <input type="radio" name="q14" value="a" id="q14a">
+                                <label for="q14a">a) Moving solvent</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q14" value="b" id="q14b">
+                                <label for="q14b">b) Paper that doesn't move</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q14" value="c" id="q14c">
+                                <label for="q14c">c) The mixture</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q14" value="d" id="q14d">
+                                <label for="q14d">d) The container</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q15. Rf value represents:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q15" value="a"> a) Color of substance</label>
-                            <label class="option"><input type="radio" name="q15" value="b"> b) Distance ratio: substance/solvent</label>
-                            <label class="option"><input type="radio" name="q15" value="c"> c) Mass of substance</label>
-                            <label class="option"><input type="radio" name="q15" value="d"> d) Temperature</label>
+                            <div class="option">
+                                <input type="radio" name="q15" value="a" id="q15a">
+                                <label for="q15a">a) Color of substance</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q15" value="b" id="q15b">
+                                <label for="q15b">b) Distance ratio: substance/solvent</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q15" value="c" id="q15c">
+                                <label for="q15c">c) Mass of substance</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q15" value="d" id="q15d">
+                                <label for="q15d">d) Temperature</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q16. In filtration, filter paper is held by:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q16" value="a"> a) Beaker</label>
-                            <label class="option"><input type="radio" name="q16" value="b"> b) Funnel</label>
-                            <label class="option"><input type="radio" name="q16" value="c"> c) Evaporating dish</label>
-                            <label class="option"><input type="radio" name="q16" value="d"> d) Condenser</label>
+                            <div class="option">
+                                <input type="radio" name="q16" value="a" id="q16a">
+                                <label for="q16a">a) Beaker</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q16" value="b" id="q16b">
+                                <label for="q16b">b) Funnel</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q16" value="c" id="q16c">
+                                <label for="q16c">c) Evaporating dish</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q16" value="d" id="q16d">
+                                <label for="q16d">d) Condenser</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q17. The condenser in distillation:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q17" value="a"> a) Heats the liquid</label>
-                            <label class="option"><input type="radio" name="q17" value="b"> b) Cools vapor to liquid</label>
-                            <label class="option"><input type="radio" name="q17" value="c"> c) Filters mixture</label>
-                            <label class="option"><input type="radio" name="q17" value="d"> d) Measures temperature</label>
+                            <div class="option">
+                                <input type="radio" name="q17" value="a" id="q17a">
+                                <label for="q17a">a) Heats the liquid</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q17" value="b" id="q17b">
+                                <label for="q17b">b) Cools vapor to liquid</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q17" value="c" id="q17c">
+                                <label for="q17c">c) Filters mixture</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q17" value="d" id="q17d">
+                                <label for="q17d">d) Measures temperature</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q18. Which method uses different boiling points?</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q18" value="a"> a) Filtration</label>
-                            <label class="option"><input type="radio" name="q18" value="b"> b) Chromatography</label>
-                            <label class="option"><input type="radio" name="q18" value="c"> c) Distillation</label>
-                            <label class="option"><input type="radio" name="q18" value="d"> d) Crystallization</label>
+                            <div class="option">
+                                <input type="radio" name="q18" value="a" id="q18a">
+                                <label for="q18a">a) Filtration</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q18" value="b" id="q18b">
+                                <label for="q18b">b) Chromatography</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q18" value="c" id="q18c">
+                                <label for="q18c">c) Distillation</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q18" value="d" id="q18d">
+                                <label for="q18d">d) Crystallization</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q19. A solvent is:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q19" value="a"> a) Substance that dissolves</label>
-                            <label class="option"><input type="radio" name="q19" value="b"> b) Liquid doing the dissolving</label>
-                            <label class="option"><input type="radio" name="q19" value="c"> c) Solid residue</label>
-                            <label class="option"><input type="radio" name="q19" value="d"> d) Filter paper</label>
+                            <div class="option">
+                                <input type="radio" name="q19" value="a" id="q19a">
+                                <label for="q19a">a) Substance that dissolves</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q19" value="b" id="q19b">
+                                <label for="q19b">b) Liquid doing the dissolving</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q19" value="c" id="q19c">
+                                <label for="q19c">c) Solid residue</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q19" value="d" id="q19d">
+                                <label for="q19d">d) Filter paper</label>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="question">
                         <div class="question-title">Q20. To separate colored dyes in ink, use:</div>
                         <div class="options">
-                            <label class="option"><input type="radio" name="q20" value="a"> a) Filtration</label>
-                            <label class="option"><input type="radio" name="q20" value="b"> b) Distillation</label>
-                            <label class="option"><input type="radio" name="q20" value="c"> c) Chromatography</label>
-                            <label class="option"><input type="radio" name="q20" value="d"> d) Evaporation</label>
+                            <div class="option">
+                                <input type="radio" name="q20" value="a" id="q20a">
+                                <label for="q20a">a) Filtration</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q20" value="b" id="q20b">
+                                <label for="q20b">b) Distillation</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q20" value="c" id="q20c">
+                                <label for="q20c">c) Chromatography</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q20" value="d" id="q20d">
+                                <label for="q20d">d) Evaporation</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -511,7 +809,7 @@
                 <!-- SECTION C: Match the Columns -->
                 <div class="section">
                     <div class="section-title">SECTION C: Match the Columns (5 marks)</div>
-                    <p style="margin-bottom: 20px; color: #666;"><strong>Instructions:</strong> Drag items from Column A and drop them into the correct boxes in Column B.</p>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 15px;"><strong>Instructions:</strong> Drag items from Column A and drop them into the correct boxes in Column B.</p>
                     
                     <div class="question">
                         <div class="question-title">Q26-28: Match Elements with their Groups</div>
@@ -525,13 +823,13 @@
                             <div class="match-column">
                                 <h4>Column B (Drop here)</h4>
                                 <div class="drop-label">Group 0 - Noble gases</div>
-                                <div class="drop-zone" data-answer="helium" data-question="q26"></div>
+                                <div class="drop-zone" data-answer="helium" data-question="q26">Drop here</div>
                                 
                                 <div class="drop-label">Group 1 - Alkali metals</div>
-                                <div class="drop-zone" data-answer="sodium" data-question="q27"></div>
+                                <div class="drop-zone" data-answer="sodium" data-question="q27">Drop here</div>
                                 
                                 <div class="drop-label">Group 7 - Halogens</div>
-                                <div class="drop-zone" data-answer="chlorine" data-question="q28"></div>
+                                <div class="drop-zone" data-answer="chlorine" data-question="q28">Drop here</div>
                             </div>
                         </div>
                     </div>
@@ -547,10 +845,10 @@
                             <div class="match-column">
                                 <h4>Column B (Drop here)</h4>
                                 <div class="drop-label">Separates insoluble solid from liquid</div>
-                                <div class="drop-zone" data-answer="filtration" data-question="q29"></div>
+                                <div class="drop-zone" data-answer="filtration" data-question="q29">Drop here</div>
                                 
                                 <div class="drop-label">Separates liquids with different boiling points</div>
-                                <div class="drop-zone" data-answer="distillation" data-question="q30"></div>
+                                <div class="drop-zone" data-answer="distillation" data-question="q30">Drop here</div>
                             </div>
                         </div>
                     </div>
@@ -560,8 +858,9 @@
             </form>
             
             <div class="result" id="result">
-                <h2>Assessment Complete!</h2>
+                <h2>🎉 Assessment Complete!</h2>
                 <div class="score" id="scoreDisplay"></div>
+                <div class="percentage" id="percentageDisplay"></div>
                 <div id="resultDetails" class="result-details"></div>
             </div>
         </div>
@@ -630,12 +929,12 @@
             
             const studentName = document.getElementById('studentName').value.trim();
             if (!studentName) {
-                alert('Please enter your name before submitting!');
+                alert('⚠️ Please enter your name before submitting!');
                 return;
             }
             
             let score = 0;
-            let details = '<h3>Your Answers:</h3>';
+            let details = '<h3>Detailed Results:</h3>';
             
             // Check MCQs (Q1-Q20)
             for (let i = 1; i <= 20; i++) {
@@ -650,7 +949,7 @@
                 const userAnswer = document.querySelector(`input[name="q${i}"]`)?.value.toLowerCase().trim();
                 const correct = userAnswer === answers[`q${i}`];
                 if (correct) score++;
-                details += `<p>Q${i}: ${correct ? '<span class="correct">✓ Correct</span>' : `<span class="incorrect">✗ Incorrect (Correct: ${answers[`q${i}`]})</span>`}</p>`;
+                details += `<p>Q${i}: ${correct ? '<span class="correct">✓ Correct</span>' : `<span class="incorrect">✗ Incorrect (Correct answer: ${answers[`q${i}`]})</span>`}</p>`;
             }
             
             // Check Match the Columns (Q26-Q30)
@@ -662,26 +961,38 @@
                 details += `<p>Q${i}: ${correct ? '<span class="correct">✓ Correct</span>' : '<span class="incorrect">✗ Incorrect</span>'}</p>`;
             }
             
+            // Calculate percentage
+            const percentage = ((score / 30) * 100).toFixed(1);
+            
             // Display results
             document.getElementById('scoreDisplay').textContent = `${score} / 30`;
+            document.getElementById('percentageDisplay').textContent = `${percentage}%`;
             document.getElementById('resultDetails').innerHTML = details;
             document.getElementById('result').classList.add('show');
             
             // Scroll to results
-            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
             
             // Save results to localStorage
             const results = {
                 name: studentName,
                 score: score,
                 total: 30,
-                date: new Date().toLocaleString(),
-                percentage: ((score / 30) * 100).toFixed(1)
+                percentage: percentage,
+                date: new Date().toLocaleString('en-GB', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric', 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                })
             };
             
             let allResults = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
             allResults.push(results);
             localStorage.setItem('assessmentResults', JSON.stringify(allResults));
+            
+            console.log('Assessment submitted:', results);
         });
     </script>
 </body>
